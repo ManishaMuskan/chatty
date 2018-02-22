@@ -65,5 +65,11 @@ class User extends Authenticatable
       return $this->first_name ?: $this->username;
     }
 
-  
+    /**
+     * Get Gravatar URL
+     *
+     */
+     public function getGravatarAttribute(){
+       return 'https://www.gravatar.com/avatar/{{ md5(strtolower(trim($user->email))) }}?d=mm&s=60';
+     }
 }

@@ -15,6 +15,7 @@ Route::get('/', [
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => ['guest']], function () {
+  /*Signup*/
   Route::get('/signup', [
     'uses' => '\chatty\Http\Controllers\AuthController@getSignup',
     'as' => 'auth.signup'
@@ -24,6 +25,7 @@ Route::group(['middleware' => ['guest']], function () {
     'uses' => '\chatty\Http\Controllers\AuthController@postSignup',
   ]);
 
+/*Signin*/
   Route::get('/signin', [
     'uses' => '\chatty\Http\Controllers\AuthController@getSignin',
     'as' => 'auth.signin'
@@ -40,8 +42,15 @@ Route::group(['middleware' => ['guest']], function () {
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => ['auth']], function () {
+  /*Signout*/
   Route::get('/signout', [
     'uses' => '\chatty\Http\Controllers\AuthController@getSignout',
     'as' => 'auth.signout'
+  ]);
+
+  /*Search People*/
+  Route::get('/search', [
+    'uses' => '\chatty\Http\Controllers\SearchController@searchPeople',
+    'as' => 'search.results'
   ]);
 });

@@ -4,4 +4,4 @@
 Homestead.yaml
 Homestead.json
 .env
-app\Http\Middleware\IsAnu.php
+/app/Http/Middleware/IsAnu.php

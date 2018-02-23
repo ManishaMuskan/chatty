@@ -59,4 +59,14 @@ Route::group(['middleware' => ['auth']], function () {
     'uses' => '\chatty\Http\Controllers\ProfileController@getProfile',
     'as' => 'profile.user'
   ]);
+
+  /*Update Profile*/
+  Route::get('/profile/{username}/edit', [
+    'uses' => '\chatty\Http\Controllers\ProfileController@editProfile',
+    'as' => 'profile.edit'
+  ]);
+
+  Route::post('/profile/{username}/edit', [
+    'uses' => '\chatty\Http\Controllers\ProfileController@updateProfile',
+  ]);
 });

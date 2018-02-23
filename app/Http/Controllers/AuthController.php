@@ -24,7 +24,7 @@ class AuthController extends Controller
       'email' => 'required|unique:users|email',
       'username' => 'required|alpha_dash|max:30',
       'password' => 'required|min:6',
-      'first_name' => 'required',
+      'first_name' => 'required|max:50',
     ]);
 
     /*------In this all the attributes are specified------*/

@@ -27,7 +27,7 @@
           <a class="nav-link" href="{{ route('profile.user', ['username' => Auth::User()->username]) }}"><img src="{{ Auth::User()->getGravatarImg(25) }}" alt="" style="border-radius:25px; border:1px solid white;">{{Auth::user()->getFirstNameOrUsername()}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('auth.signin') }}">Update Profile </a>
+          <a class="nav-link" href="{{ route('profile.edit', ['username' => Auth::User()->username]) }}">Update Profile </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('auth.signout') }}">Sign out </a>

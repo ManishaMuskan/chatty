@@ -42,12 +42,13 @@ body
 @endsection
 @section('content')
 <div class="container-fluid">
-  <div class="row">
+  <div class="row my-1">
     <div class="col-md-9">
       @include('templates.partials.profile')
     </div>
     <div class="col-md-3">
-      <h6>Your Friends</h6>
+      <h5>Your Friends</h5>
+      <hr>
       {{-- @include('templates.partials.user') --}}
     </div>
   </div>

@@ -53,4 +53,10 @@ Route::group(['middleware' => ['auth']], function () {
     'uses' => '\chatty\Http\Controllers\SearchController@searchPeople',
     'as' => 'search.results'
   ]);
+
+  /*Go to user Profile*/
+  Route::get('/profile/{username}',[
+    'uses' => '\chatty\Http\Controllers\ProfileController@getProfile',
+    'as' => 'profile.user'
+  ]);
 });

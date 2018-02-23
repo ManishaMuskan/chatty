@@ -69,7 +69,7 @@ class User extends Authenticatable
      * Get Gravatar URL
      *
      */
-     public function getGravatarAttribute(){
-       return 'https://www.gravatar.com/avatar/{{ md5(strtolower(trim($user->email))) }}?d=mm&s=60';
+     public function getGravatarImg($size){
+       return 'https://www.gravatar.com/avatar/{{ md5(strtolower(trim($this->email))) }}?d=mm&s='.$size;
      }
 }

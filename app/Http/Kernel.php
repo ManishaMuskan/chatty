@@ -50,5 +50,6 @@ class Kernel extends HttpKernel
         'guest' => \chatty\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'isanu' => \chatty\Http\Middleware\IsAnu::class,
+        'revalidate' => \chatty\Http\Middleware\RevalidateBackHistory::class,
     ];
 }

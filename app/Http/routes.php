@@ -41,7 +41,7 @@ Route::group(['middleware' => ['guest']], function () {
 | Authenticated user Routes
 |--------------------------------------------------------------------------
 */
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','revalidate']], function () {
   /*Signout*/
   Route::get('/signout', [
     'uses' => '\chatty\Http\Controllers\AuthController@getSignout',

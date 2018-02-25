@@ -34,9 +34,9 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
       $this->validate($request, [
-        'first_name' => 'alpha|max:50',
+        'first_name' => 'required|alpha|max:50',
         'last_name' => 'alpha|max:50',
-        'username' => 'alpha_dash|max:30'
+        'username' => 'required|alpha_dash|max:30'
       ]);
 
       $user = Auth::User();
@@ -44,7 +44,7 @@ class ProfileController extends Controller
       $user->update($request->all());
 
       return redirect()
-             ->route('home')
+             ->route('profile.user', ['username' => Auth::User()->username])
              ->with('info', 'your profile has been updated successfully!!');
     }
 }

@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-primary">Update</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     {{-- <input type="hidden" name="_token" value="{{ Session::Token() }}"> --}}
   </form>

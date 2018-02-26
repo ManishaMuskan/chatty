@@ -11,8 +11,11 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Timeline</a>
         </li>
+        <li class="nav-item d-sm-none">
+          <a class="nav-link" href="{{ route('user.friends', ['username' => Auth::User()->username]) }}">Friends</a>
+        </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Friends</a>
+          <a class="nav-link" href="{{ route('user.requests', ['username' => Auth::User()->username]) }}">Friend Requests</a>
         </li>
       </ul>
       <form role="search" method="get" action="{{route('search.results')}}" class="form-inline mr-auto my-lg-0">

@@ -69,4 +69,41 @@ Route::group(['middleware' => ['auth','revalidate']], function () {
   Route::post('/profile/{username}/edit', [
     'uses' => '\chatty\Http\Controllers\ProfileController@updateProfile',
   ]);
+
+  /*Get User friends*/
+  Route::get('/{username}/friends', [
+    'uses' => '\chatty\Http\controllers\FriendController@getFriends',
+    'as' => 'user.friends'
+  ]);
+
+  /*Get Auth user friend Requests*/
+  Route::get('/{username}/requests', [
+    'uses' => '\chatty\Http\Controllers\FriendController@getFriendRequests',
+    'as' => 'user.requests'
+  ]);
+
+  /*Add friend*/
+  Route::get('friend/add/{username}', [
+    'uses' => '\chatty\Http\Controllers\FriendController@addFriend',
+    'as' => 'friend.add'
+  ]);
+
+  /*Igrore friend request*/
+  Route::get('friend/ignore/{username}', [
+    'uses' => '\chatty\Http\Controllers\FriendController@ignoreFriend',
+    'as' => 'friend.ignore'
+  ]);
+
+  /*Accept friend request*/
+  Route::get('friend/accept/{username}', [
+    'uses' => '\chatty\Http\Controllers\FriendController@acceptFriend',
+    'as' => 'friend.accept'
+  ]);
+
+  /*Delete a friend Request or unfriend a friend*/
+  Route::get('friend/delete/{username}', [
+    'uses' => '\chatty\Http\Controllers\FriendController@deleteFriend',
+    'as' => 'friend.delete'
+  ]);
+
 });

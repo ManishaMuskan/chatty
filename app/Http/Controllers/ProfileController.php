@@ -13,20 +13,25 @@ class ProfileController extends Controller
   /*Redirect to user profile*/
     public function getProfile($username)
     {
-      $user = User::where('username', $username)->first();
+      $profile_user = User::where('username', $username)->first();
+      $user = Auth::User();// user's friend list will be passed
 
-      if(!$user){
-        abort(404);
+      if (!$profile_user) {
+          abort(404, 'No such user found...');
       }
-      return view('profile.index', compact('user'));
+
+      // if(!$user){
+      //   abort(404);
+      // }
+      return view('profile.index', compact('profile_user','user'));
     }
 
-    /*Edit Authenticated user's profile*/
+    /*Edit and Update Authenticated user's profile*/
     public function editProfile($username)
     {
       if($username !== Auth::User()->username)
       {
-        abort(403);
+        abort(403, "you are not authorised to update profile of others");
       }
       return view('profile.edit');
     }

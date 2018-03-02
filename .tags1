@@ -4,8 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-SearchController	C:\xampp\htdocs\chatty\app\Http\Controllers\SearchController.php	/^class SearchController extends Controller$/;"	class	line:9
-getsearchPeople	C:\xampp\htdocs\chatty\app\Http\Controllers\SearchController.php	/^    \/\/ public function getsearchPeople(Request $request)$/;"	function	line:16
-searchPeople	C:\xampp\htdocs\chatty\app\Http\Controllers\SearchController.php	/^    public function searchPeople(Request $request)$/;"	function	line:21
-keyword	C:\xampp\htdocs\chatty\app\Http\Controllers\SearchController.php	/^      $keyword = $request->searchPeople;$/;"	variable	line:23
-users	C:\xampp\htdocs\chatty\app\Http\Controllers\SearchController.php	/^      $users = User::SearchByKeyword($keyword)->get();$/;"	variable	line:24

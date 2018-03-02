@@ -1,56 +1,28 @@
 @extends('templates.default')
-@section('c_style')
 
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-body
-{
-    font-family: 'Open Sans', sans-serif;
-}
-
-.fb-profile img.fb-image-lg{
-    z-index: 0;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.fb-image-profile
-{
-    margin: -90px 10px 0px 50px;
-    z-index: 9;
-    width: 20%;
-}
-
-@media (max-width:768px)
-{
-
-.fb-profile-text>h1{
-    font-weight: 700;
-    font-size:16px;
-}
-
-.fb-image-profile
-{
-    margin: -45px 10px 0px 25px;
-    z-index: 9;
-    width: 20%;
-}
-}
+@section('title')
+  chatty : {{ Auth::User()->getName() }}'s Profile
 @endsection
+
 @section('content')
 <div class="container-fluid">
   <div class="row my-1">
     <div class="col-md-9">
+      {{-- -------------------------------- User's profile whose profile authenticated user wants to visit --------------------------------------- --}}
       @include('templates.partials.profile')
     </div>
-    <div class="col-md-3">
-      <h5>Your Friends</h5>
+    <div class="col-md-3 d-none d-md-block">
+      {{-- -------------------------------- Authenticated user's friends list --------------------------------------- --}}
+      <h4>Your Friends</h4>
       <hr>
-      {{-- @include('templates.partials.user') --}}
+      @if(!$user->friends()->count())
+          <h6>You have no friends yet!!</h6>
+      @else
+        @foreach ($user->friends() as $user)
+          @include('templates.partials.user')
+        @endforeach
+      @endif
     </div>
   </div>
-</div> <!-- /container -->
+</div>
 @endsection
